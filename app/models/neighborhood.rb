@@ -16,4 +16,17 @@ class Neighborhood < ActiveRecord::Base
     end
     openings
   end
+
+  def self.highest_ratio_res_to_listings
+    ratios = []
+    Neighborhood.all.each do |n|
+      listings_count = 0
+      reservations_count = 0
+      listings_count += n.listings.length
+      n.listings.each do |l|
+        reservations_count += l.reservations.length
+      end
+    end
+  end
+
 end
