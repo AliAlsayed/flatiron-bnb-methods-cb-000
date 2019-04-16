@@ -44,7 +44,7 @@ class Neighborhood < ActiveRecord::Base
     #   end
     # end
     # most_res_n
-    self.max_by{|n| n.reservations}
+    self.all.max_by{|n| n.reservations}
   end
 
 end
