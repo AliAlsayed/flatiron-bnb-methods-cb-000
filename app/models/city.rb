@@ -32,4 +32,19 @@ class City < ActiveRecord::Base
     end
     c_ratios[ratios.max]
   end
+
+  def self.most_res
+    max_res = 0
+    most_res_c = ''
+    self.all.each do |c|
+      res_count = c.reservations.length
+      if res_count > max_res
+        max_res = res_count
+        most_res_c = c
+      end
+    end
+    most_res_c
+  end
+
+
 end
