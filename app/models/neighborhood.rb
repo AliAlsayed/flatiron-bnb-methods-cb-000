@@ -27,7 +27,7 @@ class Neighborhood < ActiveRecord::Base
       n.listings.each do |l|
         reservations_count += l.reservations.length
       end
-      ratio = reservations_count / listings_count
+      ratio =  listings_count / reservations_count
       ratios << ratio
       n_ratios[ratio] = n
     end
