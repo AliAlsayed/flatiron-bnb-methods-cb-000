@@ -22,12 +22,8 @@ class Neighborhood < ActiveRecord::Base
     ratios = []
     n_ratios = {}
     Neighborhood.all.each do |n|
-      listings_count = 0
-      reservations_count = 0
-      listings_count += n.listings.length
-      n.listings.each do |l|
-        reservations_count += l.reservations.length
-      end
+      listings_count = n.listings.length
+      reservations_count = n.reservations.length
       if listings_count > 0
         ratio =  reservations_count / listings_count
         ratios << ratio
