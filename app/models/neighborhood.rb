@@ -17,5 +17,4 @@ class Neighborhood < ActiveRecord::Base
     end
     openings
   end
-  
 end
