@@ -33,4 +33,16 @@ class Neighborhood < ActiveRecord::Base
     n_ratios[ratios.max]
   end
 
+  def self.most_res
+    max_res = 0
+    most_res_n = ''
+    Neighborhood.all.each do |n|
+      res_count = n.reservations.length
+      if res_count > max_res
+        max_res = res_count
+        most_res_n = n
+      end
+    end
+  end
+
 end
