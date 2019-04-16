@@ -25,7 +25,7 @@ class City < ActiveRecord::Base
       listings_count = c.listings.length
       reservations_count = c.reservations.length
       if listings_count > 0
-        ratio =  reservations_count / listings_count
+        ratio =  reservations_count.to_f / listings_count.to_f
         ratios << ratio
         c_ratios[ratio] = c
       end
