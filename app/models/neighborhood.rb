@@ -43,6 +43,7 @@ class Neighborhood < ActiveRecord::Base
         most_res_n = n
       end
     end
+    most_res_n
   end
 
 end
