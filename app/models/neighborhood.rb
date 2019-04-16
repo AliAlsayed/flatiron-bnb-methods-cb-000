@@ -34,16 +34,17 @@ class Neighborhood < ActiveRecord::Base
   end
 
   def self.most_res
-    max_res = 0
-    most_res_n = ''
-    self.all.each do |n|
-      res_count = n.reservations.length
-      if res_count > max_res
-        max_res = res_count
-        most_res_n = n
-      end
-    end
-    most_res_n
+    # max_res = 0
+    # most_res_n = ''
+    # self.all.each do |n|
+    #   res_count = n.reservations.length
+    #   if res_count > max_res
+    #     max_res = res_count
+    #     most_res_n = n
+    #   end
+    # end
+    # most_res_n
+    self.max_by{|n| n.reservations}
   end
 
 end
