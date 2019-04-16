@@ -11,6 +11,7 @@ class Neighborhood < ActiveRecord::Base
         if booking_days.include?(check_in.to_date) || booking_days.include?(check_out.to_date)
           available = false
         end
+        break
       end
       openings << l if available
     end
