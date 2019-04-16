@@ -3,7 +3,7 @@ class Neighborhood < ActiveRecord::Base
   has_many :listings
 
   def neighborhood_openings(check_in, check_out)
-    listings.merge(Listing.merge(check_in, check_out))
+    listings.merge(Listing.available(check_in, check_out))
     # openings = []
     # listings.each do |l|
     #   available = true
