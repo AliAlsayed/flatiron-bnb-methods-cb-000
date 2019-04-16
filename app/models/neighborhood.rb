@@ -19,6 +19,7 @@ class Neighborhood < ActiveRecord::Base
 
   def self.highest_ratio_res_to_listings
     ratios = []
+    n_ratios = {}
     Neighborhood.all.each do |n|
       listings_count = 0
       reservations_count = 0
@@ -26,7 +27,11 @@ class Neighborhood < ActiveRecord::Base
       n.listings.each do |l|
         reservations_count += l.reservations.length
       end
+      ratio = reservations_count / listings_count
+      ratios << ratio
+      n_ratios[ratio] = n
     end
+    n_ratios[ratios.max]
   end
 
 end
