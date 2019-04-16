@@ -8,7 +8,7 @@ class Neighborhood < ActiveRecord::Base
       available = true
       l.reservations.each do |r|
         booking_days = r.checkin..r.checkout
-        if booking_days.include?(check_in) || if booking_days.include?(check_out)
+        if booking_days.include?(check_in) || booking_days.include?(check_out)
           available = false
           break
         end
